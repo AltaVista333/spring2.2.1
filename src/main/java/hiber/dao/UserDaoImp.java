@@ -12,24 +12,24 @@ import java.util.List;
 @Repository
 public class UserDaoImp implements UserDao {
 
-   @Autowired
-   private SessionFactory sessionFactory;
+   private final SessionFactory sessionFactory;
+
+   public UserDaoImp(SessionFactory sessionFactory) {
+      this.sessionFactory = sessionFactory;
+   }
 
    @Override
-   public void add(User user) {
+   public void addUser(User user) {
       sessionFactory.getCurrentSession().save(user);
    }
 
    @Override
-   @SuppressWarnings("unchecked")
-   public List<User> listUsers() {
+   public List<User> getAllUsers() {
       TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User");
       return query.getResultList();
    }
 
-
    @Override
-   @SuppressWarnings("unchecked")
    public User getUserByCarModelAndSeries(String model, Integer series) {
       TypedQuery<User> query = sessionFactory
               .getCurrentSession()

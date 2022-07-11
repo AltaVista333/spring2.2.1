@@ -1,12 +1,11 @@
 package hiber.dao;
 
 import hiber.model.User;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 public interface UserDao {
-   void add(User user);
-   List<User> listUsers();
+   void addUser(User user);
+   List<User> getAllUsers();
    User getUserByCarModelAndSeries(String model, Integer series);
 }

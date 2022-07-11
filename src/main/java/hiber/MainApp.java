@@ -9,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class MainApp {
     public static void main(String[] args) throws SQLException {
@@ -44,9 +45,8 @@ public class MainApp {
             System.out.println();
         }
 
-        User lancer = userService.getUserByCarModelAndSeries("Lancer", 3);
-        System.out.println(lancer);
-
+        Optional<User> user = userService.getUserByCarModelAndSeries("Lancer", 3);
+        user.ifPresent(System.out::println);
         context.close();
     }
 }

@@ -1,11 +1,11 @@
+/* (C)2022 */
 package hiber.service;
 
 import hiber.dao.CarDao;
 import hiber.model.Car;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -26,5 +26,4 @@ public class CarServiceImpl implements CarService {
     public List<Car> getAllCars() {
         return dao.getAllCars();
     }
-
 }

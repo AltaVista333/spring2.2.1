@@ -26,7 +26,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public List<Car> listCar() {
+    public List<Car> getAllCars() {
         Session session = sessionFactory.openSession();
         List<Car> resultList = session.createQuery("from Car").getResultList();
         session.close();
